@@ -12,13 +12,18 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: seagreen;
+    background: url(Imagenes/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 .contenedor{
+    color: #fff;
     position: relative;
     width: 400px;
     height: 555px;
-    background: purple;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(30px);
     border-radius: 1rem;
     padding: 20px;
 }
@@ -64,4 +69,65 @@ body{
     color: #fff;
     padding: 0 40px 0 5px;
     cursor: pointer;
+}
+
+.caja-clima{
+    text-align: center;
+    margin: 40px 0;
+}
+.caja-clima img{
+    width: 60%;
+}
+.caja-clima .temperatura{
+    position: relative;
+    font-size: 64px;
+    line-height: 1;
+    font-weight: 700;
+    margin: 20px 0 6px -30px;
+}
+.caja-clima .temperatura span{
+    position: absolute;
+    font-size: 24px;
+    margin-left: 4px;
+}
+.caja-clima .descripcion{
+    font-size: 22px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.clima-detalles{
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+}
+.clima-detalles .humedad,
+.clima-detalles .viento{
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+.clima-detalles .humedad{
+    padding-left: 20px;
+    justify-content: flex-start;
+}
+.clima-detalles .viento{
+    padding-right: 20px;
+    justify-content: flex-start;
+}
+.clima-detalles i{
+    font-size: 56px;
+    margin-right: 10px;
+}
+.clima-detalles span{
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 500;
+}
+.clima-detalles p{
+    font-size: 14px;
+    font-weight: 500;
 }

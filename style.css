@@ -16,16 +16,18 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    overflow: hidden;
 }
 .contenedor{
     color: #fff;
     position: relative;
     width: 400px;
-    height: 555px;
+    height: 100px;
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(30px);
     border-radius: 1rem;
     padding: 20px;
+    transition: height .6s ease;
 }
 .contenedor .caja-buscar{
     position: relative;
@@ -33,6 +35,38 @@ body{
     height: 55px;
     display: flex;
     align-items: center;
+}
+.caja-clima,
+.clima-detalles,
+.no-encontrado{
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.caja-clima.active,
+.clima-detalles.active,
+.no-encontrado.active{
+    visibility: visible;
+}
+
+.caja-clima .box,
+.no-encontrado .no-encontrado-box{
+    transform: translateY(-100%);
+}
+.caja-clima.active .box,
+.no-encontrado.active .no-encontrado-box{
+    transform: translateY(0%);
+    transition: transform 1s ease;
+    transition-delay: .6s;
+}
+.caja-clima .box .info-clima{
+    transform: translateY(-120%);
+}
+.contenedor.active .caja-clima .box .info-clima,
+.contenedor.active .clima-detalles .humedad .info-humedad,
+.contenedor.active .clima-detalles .viento .info-viento{
+    transform: translateY(0%);
+    transition: transform 1s ease;
 }
 .contenedor .caja-buscar i{
     position: absolute;
@@ -69,6 +103,10 @@ body{
     color: #fff;
     padding: 0 40px 0 5px;
     cursor: pointer;
+}
+
+.ciudad-hide{
+    display: none;
 }
 
 .caja-clima{
@@ -109,6 +147,18 @@ body{
     display: flex;
     align-items: center;
     width: 50%;
+    transform: translateY(-100%);
+}
+.clima-detalles.active .humedad,
+.clima-detalles.active .viento{
+    transform: translateY(0%);
+    transition: transform 1s ease;
+    transition-delay: 1.2s;
+}
+.clima-detalles .humedad .info-humedad,
+.clima-detalles .viento .info-viento{
+    transform: translateY(-100%);
+    overflow: hidden;
 }
 .clima-detalles .humedad{
     padding-left: 20px;
@@ -130,4 +180,51 @@ body{
 .clima-detalles p{
     font-size: 14px;
     font-weight: 500;
+}
+
+.no-encontrado{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 110px;
+}
+.no-encontrado .no-encontrado-box img{
+    width: 65%;
+}
+.no-encontrado .no-encontrado-box p{
+    font-size: 22px;
+    font-weight: 500;
+}
+
+
+
+#clone-info-clima,
+#clone-info-humedad,
+#clone-info-viento{
+    position: absolute;
+    transform: translateY(-100%);
+}
+#clone-info-clima .clima{
+    transform: translateY(120%);
+    transition: transform 1s ease, opacity 0s;
+    transition-delay: 0s, 2s;
+}
+.caja-clima:not(.active) #clone-info-clima .clima{
+    opacity: 0;
+    transition-delay: 0s;
+}
+.active-clone#clone-info-clima .clima{
+    transform: translateY(0%);
+}
+
+#clone-info-humedad span,
+#clone-info-viento span{
+    transform: translateY(100%);
+    transition: transform 1s ease;
+}
+.active-clone#clone-info-humedad span,
+.active-clone#clone-info-viento span{
+    transform: translateY(0%);
 }

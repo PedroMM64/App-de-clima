@@ -12,7 +12,7 @@ cajaBuscar.addEventListener('click', () => {
     if (city == '')
         return;
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}&lang={sp,es}`).then(response => response.json()).then(json => {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}&lang=sp`).then(response => response.json()).then(json => {
         if (json.cod == '404') {
             ciudadHide.textContent = city;
             contenedor.style.height = '400px';
@@ -93,16 +93,16 @@ cajaBuscar.addEventListener('click', () => {
                 infoClima.insertAdjacentElement("afterend", elClonInfoClima);
                 infoHumedad.insertAdjacentElement("afterend", elClonInfoHumedad);
                 infoViento.insertAdjacentElement("afterend", elClonInfoViento);
-            }, 2500);
+            }, 2200);
 
-            const cloneInfoClima = document.querySelectorAll('info-clima.active-clone');
+            const cloneInfoClima = document.querySelectorAll('.info-clima.active-clone');
             const totalCloneInfoClima = cloneInfoClima.length;
             const cloneInfoClimaFirst = cloneInfoClima[0];
 
-            const cloneInfoHumedad = document.querySelectorAll('info-humedad.active-clone');
+            const cloneInfoHumedad = document.querySelectorAll('.info-humedad.active-clone');
             const cloneInfoHumedadFirst = cloneInfoHumedad[0];
 
-            const cloneInfoViento = document.querySelectorAll('info-viento.active-clone');
+            const cloneInfoViento = document.querySelectorAll('.info-viento.active-clone');
             const cloneInfoVientoFirst = cloneInfoViento[0];
 
             if(totalCloneInfoClima > 0){

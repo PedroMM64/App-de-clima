@@ -103,6 +103,11 @@ body{
     color: #fff;
     padding: 0 40px 0 5px;
     cursor: pointer;
+    transition: .3s ease;
+}
+.contenedor .caja-buscar button:hover{
+    color: #17e4ff;
+    scale: 1.6;
 }
 
 .ciudad-hide{
@@ -206,7 +211,7 @@ body{
     position: absolute;
     transform: translateY(-100%);
 }
-#clone-info-clima .clima{
+#clone-info-clima .climas{
     transform: translateY(120%);
     transition: transform 1s ease, opacity 0s;
     transition-delay: 0s, 2s;
@@ -215,7 +220,7 @@ body{
     opacity: 0;
     transition-delay: 0s;
 }
-.active-clone#clone-info-clima .clima{
+.active-clone#clone-info-clima .climas{
     transform: translateY(0%);
 }
 
